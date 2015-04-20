@@ -10,7 +10,8 @@ module.exports = {
     },
     externals: {
         'react': 'React',
-        'moment': 'moment'
+        'moment': 'moment',
+        'react-datagrid': 'DataGrid'
     },
     resolve: {
         // Allow to omit extensions when requiring these files
