@@ -69,7 +69,8 @@ const all = [
 	example('custom-row-styling', {height: 350 }),
 	example('custom-cell-borders', {height: 350 }),
 	example('text-align-and-custom-row-height', {height: 350 }),
-	example('restore-grid-state', {height: 750 })
+	example('restore-grid-state', {height: 750 }),
+	example('remote-data-source', {height: 400 })
 ]
 
 const allMap = {}

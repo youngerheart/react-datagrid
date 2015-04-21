@@ -8,7 +8,8 @@ module.exports = {
         loaders: require('./loaders.config')
     },
     externals: {
-        'react-datagrid': 'DataGrid'
+        'react-datagrid': 'DataGrid',
+        'react': 'React'
     },
     resolve: {
         // Allow to omit extensions when requiring these files
