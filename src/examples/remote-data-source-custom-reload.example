@@ -1,0 +1,57 @@
+'use strict';
+
+var React    = require('react')
+var DataGrid = require('react-datagrid')
+
+var columns = [
+	{ name: 'lastName' },
+	{ name: 'city', width: 200 },
+	{ name: 'country', width: 200 },
+	{ name: 'email', width: 100}
+]
+
+function ds(query){
+	var timestamp = +new Date
+	return fetch('http://5.101.99.47:8090/5000?pageSize='+query.pageSize+'&skip='+query.skip+'&timestamp=' + timestamp)
+}
+
+var PAGE = 1
+var PAGE_SIZE = 110
+
+module.exports = React.createClass({
+
+	reload: function(){
+		this.refs.grid.reload()
+	},
+	onPageChange: function(page) {
+		PAGE = page
+		this.setState({})
+	},
+	onPageSizeChange: function(pageSize, props) {
+		if (pageSize > PAGE_SIZE){
+		    //when page size gets bigger, the page may not exist
+		    //so make sure you update that as well
+		    PAGE = Math.min(PAGE, Math.ceil(props.dataSourceCount / pageSize))
+		}
+		PAGE_SIZE = pageSize
+		this.setState({})
+	},
+	render: function(){
+		return <div>
+			<p>
+				<button onClick={this.reload}>Reload</button>
+			</p>
+			<DataGrid
+				ref="grid"
+				dataSource={ds}
+				page={PAGE}
+				pageSize={PAGE_SIZE}
+				onPageChange={this.onPageChange}
+				onPageSizeChange={this.onPageSizeChange}
+				idProperty='id'
+				columns={columns}
+				style={{height: 500}}
+			/>
+		</div>
+	}
+})

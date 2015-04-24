@@ -1,0 +1,27 @@
+'use strict';
+
+var React    = require('react')
+var DataGrid = require('react-datagrid')
+
+var columns = [
+	{ name: 'lastName' },
+	{ name: 'city', width: 200 },
+	{ name: 'country', width: 200 },
+	{ name: 'email'}
+]
+
+module.exports = React.createClass({
+
+	render: function(){
+		return <DataGrid
+			dataSource='http://5.101.99.47:8090/5000'
+			idProperty='id'
+			columns={columns}
+			pageSize={100}
+			paginationToolbarProps={{
+				showPageSize: false
+			}}
+			style={{height: 500}}
+		/>
+	}
+})

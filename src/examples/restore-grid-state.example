@@ -81,7 +81,7 @@ var App = React.createClass({
 			</div>
 			<DataGrid
 				idProperty='id'
-				data={data}
+				dataSource={data}
 				columns={GRID_INFO.columns}
 				sortInfo={GRID_INFO.sortInfo}
 				style={{height: 300}}

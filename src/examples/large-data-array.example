@@ -32,7 +32,7 @@ module.exports = React.createClass({
 	render: function(){
 		return <DataGrid
 			idProperty='id'
-			data={data}
+			dataSource={data}
 			columns={columns}
 			style={{height: 700}}
 			loading={loading}

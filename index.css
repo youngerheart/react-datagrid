@@ -1328,6 +1328,17 @@ html.u-app body * {
 .react-datagrid {
   align-items: stretch;
 }
+.react-datagrid .z-row,
+.react-datagrid .react-datagrid-pagination-toolbar {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+.react-datagrid .loadmask {
+  z-index: 100;
+}
 .react-datagrid .z-header-menu-column {
   z-index: 100;
 }
@@ -1385,6 +1396,12 @@ html.u-app body * {
   right: 0px;
   top: 0px;
   width: 1px;
+  -webkit-box-flex: none;
+  -moz-box-flex: none;
+  -ms-box-flex: none;
+  -ms-flex: none;
+  -webkit-flex: none;
+  flex: none;
   visibility: hidden;
 }
 .react-datagrid .z-horizontal-scroller {
@@ -1392,12 +1409,19 @@ html.u-app body * {
   visibility: hidden;
 }
 .react-datagrid .z-vertical-scrollbar {
-  overflow: auto;
-  transform: translate3d(0px, 0px, 2px);
-  position: relative;
-  display: block;
+  overflow: hidden;
+  position: absolute;
+  height: 100%;
+  right: 0px;
+  top: 0px;
 }
-.react-datagrid .z-vertical-scrollbar .z-inner {
+.react-datagrid .z-vertical-scrollbar .inner {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -ms-box-flex: 1;
+  -ms-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
   overflow: auto;
   width: 100%;
   height: 100%;
@@ -1877,6 +1901,9 @@ img {
 .body .react-datagrid {
   width: 100%;
   border: 1px solid #b0b0b0;
+}
+.body .react-datagrid .react-datagrid-pagination-toolbar {
+  border-top: 1px solid #b0b0b0;
 }
 .logo-fill-white {
   fill: #494e4f;

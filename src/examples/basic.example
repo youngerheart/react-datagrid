@@ -20,7 +20,7 @@ var App = React.createClass({
 	render: function(){
 		return <DataGrid
 			idProperty='id'
-			data={data}
+			dataSource={data}
 			columns={columns}
 			style={{height: 500}}
 			//if you don't want to show a column menu to show/hide columns, use

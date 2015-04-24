@@ -70,7 +70,44 @@ const all = [
 	example('custom-cell-borders', {height: 350 }),
 	example('text-align-and-custom-row-height', {height: 350 }),
 	example('restore-grid-state', {height: 750 }),
-	example('remote-data-source', {height: 400 })
+	example('remote-data-source', {
+		height: 400,
+		description: <div>
+			<p>
+				Based on the type of the <b>dataSource</b> prop, you have:
+				<ul>
+					<li>Array - local data</li>
+					<li>String/Function/Promise - remote data</li>
+				</ul>
+			</p>
+		</div>
+	}),
+	example('remote-data-source-with-jquery', {height: 450 }),
+	example('remote-data-source-custom-page-size', {height: 450 }),
+	example('remote-data-source-pagesizes', {height: 450 }),
+	example('remote-data-source-custom-reload', {height: 450,
+		description: <div>
+			<p>
+				The example proves both controlled <b>page</b> and <b>pageSize</b> props,
+				as well as using the <b>reload</b> method on the grid
+			</p>
+			<p>
+				Hit the reload button to refresh the grid.
+			</p>
+		</div>
+	}),
+	example('remote-data-source-hide-page-size', {
+		height: 450,
+		description: <div>
+			You can hide the <b>pageSize &lt;select&gt;</b> if you want to.
+		</div>
+	}),
+	example('remote-data-source-colored-buttons', {
+		height: 450,
+		description: <div>
+			The example below shows how you can change icon colors and height, and also hide the refresh icon
+		</div>
+	})
 ]
 
 const allMap = {}

@@ -21,7 +21,7 @@ var App = React.createClass({
 		return <div>
 			<DataGrid
 				idProperty='id'
-				data={data}
+				dataSource={data}
 				columns={columns}
 				style={{height: 400}}
 
