@@ -1562,6 +1562,7 @@ html.u-app body * {
   flex-pack: center;
   -ms-flex-pack: center;
   align-items: center;
+  -webkit-align-items: center;
 }
 .react-datagrid.z-empty .z-table-wrapper .z-empty-text {
   display: inline-block;
@@ -1884,10 +1885,11 @@ img {
   align-items: flex-start;
 }
 .body .example-menu {
+  white-space: nowrap;
   list-style: none;
   margin: 0px;
   padding: 0px;
-  padding-right: 40px;
+  padding-right: 20px;
 }
 .body .example-menu a {
   color: #4183c4;
