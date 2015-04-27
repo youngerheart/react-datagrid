@@ -85,6 +85,7 @@ const all = [
 	example('remote-data-source-with-jquery', {height: 450 }),
 	example('remote-data-source-custom-page-size', {height: 450 }),
 	example('remote-data-source-pagesizes', {height: 450 }),
+	example('remote-data-source-no-pagination', {height: 450 }),
 	example('remote-data-source-custom-reload', {height: 450,
 		description: <div>
 			<p>
