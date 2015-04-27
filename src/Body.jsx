@@ -12,7 +12,7 @@ const Body = class extends React.Component {
 		let props = this.prepareProps(this.props)
 
 		return <div {...props} >
-			<div style={normalize({flex: '1 1 auto'})}>
+			<div style={normalize({flex: '1 1 auto', minWidth: 0})}>
 				<RouteHandler />
 			</div>
 		</div>
