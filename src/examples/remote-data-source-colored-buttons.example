@@ -39,7 +39,7 @@ module.exports = React.createClass({
 			style={{height: 500}}
 			paginationToolbarProps={{
 				showRefreshIcon: false,
-				iconHeight: 30,
+				iconSize: 30,
 				iconProps: {
 					style: {fill: '#FF8484'},
 					overStyle: {fill: 'red'},

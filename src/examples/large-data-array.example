@@ -13,29 +13,16 @@ var columns = [
 	{ name: 'email'}
 ]
 
-var loading = true
-
 module.exports = React.createClass({
 
-	componentDidMount: function(){
-		fetch('./huge.json') //100.000 records
-			.then(function(response){
-				return response.json()
-			})
-			.then(function(array){
-				data = array
-				loading = false
-				this.setState({})
-			}.bind(this))
-	},
 
 	render: function(){
 		return <DataGrid
 			idProperty='id'
-			dataSource={data}
+			dataSource='./huge.json'
+			pagination={false}
 			columns={columns}
 			style={{height: 700}}
-			loading={loading}
 		/>
 	}
 })

@@ -40,7 +40,7 @@ const all = [
 		height: 350
 	}),
 	example('large-data-array', {
-							height: 550,
+							height: 450,
 							description: <div>
 								<p>You can have <b>huge</b> amounts of data in a grid.</p>
 								<p>We have tested it with <b>1.000.000</b> records. </p>
