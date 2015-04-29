@@ -143,7 +143,7 @@ module.exports = React.createClass({
 
     renderCell: function(props, column, index){
 
-        var text = props.data[column.name]
+        var text    = props.data[column.name]
         var columns = props.columns
 
         var cellProps = {
@@ -152,6 +152,7 @@ module.exports = React.createClass({
             data       : props.data,
             columns    : columns,
             index      : index,
+            column     : column,
             rowIndex   : props.index,
             style      : column.style,
             textPadding: props.cellPadding,

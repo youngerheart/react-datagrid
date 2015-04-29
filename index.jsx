@@ -46,11 +46,12 @@ var RELOAD = true
 var columns = [
     {
         name: 'country',
+        // textAlign: 'right',
         style: {
             color: 'red',
-            textAlign: 'right'
+            // textAlign: 'right'
         },
-        width: 150
+        width: 250
     },
     {
         name: 'id',
@@ -205,12 +206,23 @@ var App = React.createClass({
             })
         }
 
+        function renderText(value, col, rowIndex){
+            return value
+        }
+
         return <div >
 
             <button onClick={this.clear}>clear</button>
             <button onClick={this.set}>set</button>
             <input defaultValue="test"/>
             <DataGrid
+                columnGroups={[
+                    {
+                        title: 'Personal info',
+                        columns: ['country', 'id']
+                    }
+                ]}
+                renderText={renderText}
                 onFilter={filter}
                 liveFilter={true}
                 defaultSelected={{1: true, 2: true}}
@@ -234,13 +246,12 @@ var App = React.createClass({
                 cellPadding={'0px 5px'}
                 xpageSize={PAGE_SIZE}
                 xdata={data}
-                pageSize={PAGE_SIZE}
-                dataSource='http://5.101.99.47:8090/5000'
+                xxpageSize={PAGE_SIZE}
+                dataSource={data}
                 page={PAGE}
                 onPageSizeChange={this.onPageSizeChange}
                 onPageChange={this.onPageChange}
                 reload={RELOAD}
-                pagination={true}
                 paginationToolbarProps={{
                     xshowRefreshIcon: false,
                     xshowPageSize: false,

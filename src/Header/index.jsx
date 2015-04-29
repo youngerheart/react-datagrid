@@ -64,23 +64,26 @@ module.exports = React.createClass({
     },
 
     onDrop: function(event){
-        if (this.state.dragging){
+        var state = this.state
+        var props = this.props
+
+        if (state.dragging){
             event.stopPropagation()
         }
 
-        var dragIndex = this.state.dragColumnIndex
-        var dropIndex = this.state.dropIndex
+        var dragIndex = state.dragColumnIndex
+        var dropIndex = state.dropIndex
 
         if (dropIndex != null){
 
             //since we need the indexes in the array of all columns
             //not only in the array of the visible columns
             //we need to search them and make this transform
-            var dragColumn = this.props.columns[dragIndex]
-            var dropColumn = this.props.columns[dropIndex]
+            var dragColumn = props.columns[dragIndex]
+            var dropColumn = props.columns[dropIndex]
 
-            dragIndex = findIndexByName(this.props.allColumns, dragColumn.name)
-            dropIndex = findIndexByName(this.props.allColumns, dropColumn.name)
+            dragIndex = findIndexByName(props.allColumns, dragColumn.name)
+            dropIndex = findIndexByName(props.allColumns, dropColumn.name)
 
             this.props.onDropColumn(dragIndex, dropIndex)
         }
@@ -117,6 +120,8 @@ module.exports = React.createClass({
 
         var cells = props.columns
                         .map(this.renderCell.bind(this, props, this.state))
+
+
 
         var style = normalize(props.style)
         var headerStyle = normalize({
@@ -206,13 +211,13 @@ module.exports = React.createClass({
             <Cell
                 key={column.name}
                 textPadding={props.cellPadding}
-                columns={props.columns}
+                columns={props.columns || []}
                 index={index}
+                column={props.columns[index]}
                 className={className}
                 style={style}
                 text={text}
                 header={true}
-
                 onMouseOut={this.handleMouseOut.bind(this, column)}
                 onMouseOver={this.handleMouseOver.bind(this, column)}
                 {...events}

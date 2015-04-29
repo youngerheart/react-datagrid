@@ -40,6 +40,8 @@ module.exports = function renderRow(props, data, index, fn){
         selected = selectedKey === props.selected
     }
 
+    var columns = props.columns || []
+
     var config = {
         className: index % 2 === 0? 'z-even': 'z-odd',
         selected : selected,
@@ -54,7 +56,8 @@ module.exports = function renderRow(props, data, index, fn){
         cellPadding: props.cellPadding,
         rowHeight  : props.rowHeight,
         minWidth   : props.minRowWidth,
-        columns    : props.columns,
+        columns    : columns,
+        column     : columns[index],
 
         rowContextMenu: props.rowContextMenu,
         showMenu: props.showMenu,

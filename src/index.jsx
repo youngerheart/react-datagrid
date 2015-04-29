@@ -342,6 +342,7 @@ module.exports = React.createClass({
             resizing         : state.resizing,
             columns          : columns,
             allColumns       : allColumns,
+            columnGroups     : props.columnGroups,
             columnVisibility : state.visibility,
             cellPadding      : props.headerPadding || props.cellPadding,
             filterIconColor  : props.filterIconColor,
