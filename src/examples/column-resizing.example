@@ -17,6 +17,7 @@ var App = React.createClass({
 	},
 	render: function(){
 		return <DataGrid
+			ref="dataGrid"
 			idProperty='id'
 			dataSource={data}
 			columns={columns}

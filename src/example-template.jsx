@@ -23,9 +23,17 @@ export default function(name, snippetProps){
 			}
 		},
 
+		componentDidUpdate: function(){
+			window.cmp = this.refs.cmp
+		},
+
+		componentDidMount: function(){
+			window.cmp = this.refs.cmp
+		},
+
 		render: function(){
 
-			var cmp  = React.cloneElement(this.state.cmp || req())
+			var cmp  = React.cloneElement(this.state.cmp || req(), { ref: 'cmp' })
 			var code = require('raw-loader!../src/examples/' + name + '.example')
 
 			var description
