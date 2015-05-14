@@ -44,7 +44,7 @@ const all = [
 							description: <div>
 								<p>You can have <b>huge</b> amounts of data in a grid.</p>
 								<p>We have tested it with <b>1.000.000</b> records. </p>
-								<p>In this demo, we are remotely fetching a json with <b>100.000 records</b> and showing them in the grid, so please wait a bit until the json is loaded. The browser might freeze for a moment while doing the JSON.parse. After this, the grid does its job and keeps everything running smoothly.</p>
+								<p>In this demo, we are remotely fetching a json with <b>50.000 records</b> and showing them in the grid, so please wait a bit until the json is loaded. The browser might freeze for a moment while doing the JSON.parse. After this, the grid does its job and keeps everything running smoothly.</p>
 								<p>In any case, the grid remains snappy no matter how large the data array is, since we only render a small subset of all data.</p>
 							</div>
 					}),
