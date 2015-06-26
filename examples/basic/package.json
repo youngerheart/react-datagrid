@@ -1,0 +1,33 @@
+{
+  "name": "test-react-datagrid",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack-dev-server --progress --colors"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "faker": "^2.1.5",
+    "normalize.css": "^3.0.3",
+    "react": "^0.13.3",
+    "react-datagrid": "^1.1.14",
+    "stylus-normalizer": "^1.1.0"
+  },
+  "devDependencies": {
+    "babel-core": "^5.6.11",
+    "babel-loader": "^5.2.2",
+    "css-loader": "^0.15.1",
+    "extract-text-webpack-plugin": "^0.8.2",
+    "file-loader": "^0.8.4",
+    "json-loader": "^0.5.2",
+    "node-libs-browser": "^0.5.2",
+    "style-loader": "^0.12.3",
+    "stylus-loader": "^1.2.1",
+    "url-loader": "^0.5.6",
+    "webpack": "^1.9.12",
+    "webpack-dev-server": "^1.9.0"
+  }
+}
