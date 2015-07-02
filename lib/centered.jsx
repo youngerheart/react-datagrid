@@ -20,6 +20,10 @@ var _assign = require('object-assign');
 
 var _assign2 = _interopRequireWildcard(_assign);
 
+var _normalize = require('react-style-normalizer');
+
+var _normalize2 = _interopRequireWildcard(_normalize);
+
 'use strict';
 
 function clone(el, props) {
@@ -44,7 +48,11 @@ function center(el) {
 
 	props.className = (props.className || '') + ' centered';
 
-	return clone(el, _assign2['default']({}, props, { style: style }));
+	if (el.props && el.props.className) {
+		props.className += ' ' + el.props.className;
+	}
+
+	return clone(el, _assign2['default']({}, props, { style: _normalize2['default'](style) }));
 }
 
 var _default = (function (_React$Component) {

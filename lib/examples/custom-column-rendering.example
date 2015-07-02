@@ -1,0 +1,25 @@
+'use strict';
+
+var React = require('react');
+var DataGrid = require('react-datagrid');
+var data = require('../data/200');
+var columns = [
+//specify a render function to configure custom rendering
+{ name: 'index', render: function render(v) {
+		return 'Index ' + v;
+	} }, { name: 'firstName' }, { name: 'lastName' }, { name: 'city' }];
+
+var App = React.createClass({
+	displayName: 'App',
+
+	render: function render() {
+		return React.createElement(DataGrid, {
+			idProperty: 'id',
+			dataSource: data,
+			columns: columns,
+			style: { height: 400 }
+		});
+	}
+});
+
+module.exports = App;

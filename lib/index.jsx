@@ -14,11 +14,11 @@ var Header = require('./Header');
 var Body = require('./Body');
 var Footer = require('./Footer');
 
-var div = React.createElement(
-	'div',
-	null,
-	'test'
-);
+window.ReactDataGrid = require('react-datagrid');
+window.sorty = require('sorty');
+require('whatwg-fetch'); //exposes window.fetch
+Object.assign = require('object-assign');
+Object.keys = Object.keys || require('object-keys');
 
 exports['default'] = React.createClass({
 
@@ -27,13 +27,9 @@ exports['default'] = React.createClass({
 	render: function render() {
 		return React.createElement(
 			'div',
-			{ style: { display: 'flex', flexFlow: 'column', minHeight: '100%' } },
+			{ className: 'flexbox flex-column', style: { display: 'flex', flexFlow: 'column', minHeight: '100%' } },
 			React.createElement(Header, null),
-			React.createElement(
-				Centered,
-				null,
-				React.createElement(Body, null)
-			),
+			React.createElement(Body, null),
 			React.createElement(Footer, null)
 		);
 	}

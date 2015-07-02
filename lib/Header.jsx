@@ -20,11 +20,16 @@ var _assign = require('object-assign');
 
 var _assign2 = _interopRequireWildcard(_assign);
 
+var _Link = require('react-router');
+
 var _Centered = require('./centered');
 
 var _Centered2 = _interopRequireWildcard(_Centered);
 
 'use strict';
+
+var gitLogoURL = require('../resources/images/GitHub-Mark-32px.png');
+var logoURL = require('../resources/images/logo-simplu-w.png');
 
 var Header = (function (_React$Component) {
 	var _class = function Header() {
@@ -40,22 +45,43 @@ var Header = (function (_React$Component) {
 	_createClass(_class, [{
 		key: 'render',
 		value: function render() {
+
+			var center = !this.context.router.isActive('examples');
+
 			return _React2['default'].createElement(
 				'div',
 				this.prepareProps(this.props),
 				_React2['default'].createElement(
 					_Centered2['default'],
 					{ style: {
-							width: 'auto', display: 'flex', flexFlow: 'row', alignItems: 'center'
+							width: center ? null : 'auto', display: 'flex', flexFlow: 'row', alignItems: 'center'
 						} },
 					_React2['default'].createElement(
 						'div',
 						null,
-						_React2['default'].createElement('img', { src: '../resources/svg/logo-w.svg', style: { height: 35 } }),
 						_React2['default'].createElement(
-							'p',
-							{ style: { padding: '0 20px', fontWeight: 'bold' } },
-							'A carefully crafted DataGrid for React'
+							_Link.Link,
+							{ to: '/', style: { textDecoration: 'none', color: 'white' } },
+							_React2['default'].createElement('img', { src: logoURL, style: { height: 35 } }),
+							_React2['default'].createElement(
+								'span',
+								{ style: { padding: '0 20px', fontSize: '1.2em' } },
+								'Carefully crafted UI components for React'
+							)
+						),
+						_React2['default'].createElement(
+							'div',
+							{ style: { flex: 1, textAlign: 'right' } },
+							_React2['default'].createElement(
+								'div',
+								{ style: { float: 'right' } },
+								_React2['default'].createElement(
+									'a',
+									{ target: '_blank', className: 'repo-link', href: 'http://github.com/zippyui/react-datagrid', style: { color: 'white', textDecoration: 'none' } },
+									_React2['default'].createElement('img', { className: 'github-logo', src: gitLogoURL }),
+									'GitHub Repo'
+								)
+							)
 						)
 					)
 				)
@@ -98,6 +124,9 @@ Header.defaultProps = {
 	defaultStyle: {
 		boxShadow: '0 0 5px rgba(0, 0, 0, 0.5)'
 	}
+};
+Header.contextTypes = {
+	router: _React2['default'].PropTypes.func
 };
 
 exports['default'] = Header;

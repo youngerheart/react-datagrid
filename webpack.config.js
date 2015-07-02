@@ -2,7 +2,7 @@
 module.exports = {
     entry: './index.jsx',
     output: {
-        publicPath: 'http://192.168.1.4:8090/assets'
+        publicPath: '/assets'
     },
     module: {
         loaders: require('./loaders.config')
@@ -16,7 +16,8 @@ module.exports = {
         extensions: ['', '.js', '.jsx']
     },
     devServer: {
-        contentBase: 'http://192.168.1.4:8080',
+        // contentBase: 'http://192.168.1.4:8080',
+        publicPath: '/assets',
         info: true,
         quiet: false,
 

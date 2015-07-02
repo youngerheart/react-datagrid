@@ -20,31 +20,13 @@ var _assign = require('object-assign');
 
 var _assign2 = _interopRequireWildcard(_assign);
 
-var _DataGrid = require('react-datagrid');
+var _normalize = require('react-style-normalizer');
 
-var _DataGrid2 = _interopRequireWildcard(_DataGrid);
+var _normalize2 = _interopRequireWildcard(_normalize);
 
-// require('react-datagrid/style/index.styl')
-
-var _data200 = require('./data/200');
-
-var _data2002 = _interopRequireWildcard(_data200);
+var _Link$RouteHandler = require('react-router');
 
 'use strict';
-
-var columns = [{
-	name: 'index',
-	title: '#',
-	width: 55
-}, {
-	name: 'firstName'
-}, {
-	name: 'lastName'
-}, {
-	name: 'city'
-}, {
-	name: 'email'
-}];
 
 var Body = (function (_React$Component) {
 	var _class = function Body() {
@@ -66,7 +48,11 @@ var Body = (function (_React$Component) {
 			return _React2['default'].createElement(
 				'div',
 				props,
-				_React2['default'].createElement(_DataGrid2['default'], { idProperty: 'id', data: _data2002['default'], columns: columns, style: { height: 800 } })
+				_React2['default'].createElement(
+					'div',
+					{ style: _normalize2['default']({ flex: '1 1 auto', minWidth: 0 }) },
+					_React2['default'].createElement(_Link$RouteHandler.RouteHandler, null)
+				)
 			);
 		}
 	}, {
@@ -100,9 +86,11 @@ var Body = (function (_React$Component) {
 })(_React2['default'].Component);
 
 Body.defaultProps = {
-	defaultStyle: {
-		flex: 1
-	}
+	defaultStyle: _normalize2['default']({
+		flex: '1 1 auto',
+		display: 'flex',
+		flexFlow: 'row'
+	})
 };
 
 exports['default'] = Body;

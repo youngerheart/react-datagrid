@@ -1,7 +1,5 @@
 'use strict';
 
-require('./index.styl')
-
 var React  = window.React = require('react')
 var Router = require('react-router')
 var routes = require('./src/routes')

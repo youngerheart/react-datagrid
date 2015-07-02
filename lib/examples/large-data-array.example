@@ -1,0 +1,21 @@
+'use strict';
+
+var React = require('react');
+var DataGrid = require('react-datagrid');
+
+var data = [];
+var columns = [{ name: 'index', title: '#', width: 150 }, { name: 'firstName' }, { name: 'lastName' }, { name: 'city', width: 200 }, { name: 'country', width: 200 }, { name: 'email' }];
+
+module.exports = React.createClass({
+	displayName: 'exports',
+
+	render: function render() {
+		return React.createElement(DataGrid, {
+			idProperty: 'id',
+			dataSource: './huge.json',
+			pagination: false,
+			columns: columns,
+			style: { height: 700 }
+		});
+	}
+});

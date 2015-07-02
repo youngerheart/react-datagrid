@@ -26,8 +26,10 @@ var _Centered2 = _interopRequireWildcard(_Centered);
 
 'use strict';
 
-var _default = (function (_React$Component) {
-	var _class = function _default() {
+var logoURL = require('../resources/images/logo-simplu-w.png');
+
+var Footer = (function (_React$Component) {
+	var _class = function Footer() {
 		_classCallCheck(this, _class);
 
 		if (_React$Component != null) {
@@ -41,21 +43,27 @@ var _default = (function (_React$Component) {
 		key: 'render',
 		value: function render() {
 
+			var center = !this.context.router.isActive('examples');
 			var props = this.prepareProps(this.props);
+
 			return _React2['default'].createElement(
 				'div',
 				props,
 				_React2['default'].createElement(
 					_Centered2['default'],
-					{ style: true },
+					{ style: { width: center ? null : 'auto' } },
 					_React2['default'].createElement(
 						'div',
 						null,
-						_React2['default'].createElement('img', { src: '../resources/svg/logo-simplu-w.svg', style: { width: 30, marginRight: 8 } }),
+						_React2['default'].createElement('img', { src: logoURL, style: { width: 30, marginRight: 8 } }),
 						_React2['default'].createElement(
 							'p',
-							{ style: { textAlign: 'right' } },
-							'© Zippy Technologies'
+							null,
+							_React2['default'].createElement(
+								'a',
+								{ style: { textDecoration: 'none', color: 'white' }, href: 'https://github.com/zippyui', target: '_blank' },
+								'© Zippy Technologies'
+							)
 						)
 					)
 				)
@@ -85,5 +93,9 @@ var _default = (function (_React$Component) {
 	return _class;
 })(_React2['default'].Component);
 
-exports['default'] = _default;
+Footer.contextTypes = {
+	router: _React2['default'].PropTypes.func
+};
+
+exports['default'] = Footer;
 module.exports = exports['default'];

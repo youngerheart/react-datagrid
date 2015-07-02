@@ -1,0 +1,28 @@
+'use strict';
+
+var React = require('react');
+var DataGrid = require('react-datagrid');
+var data = require('../data/1500');
+var columns = [{ name: 'index', title: '#', width: 50 }, { name: 'firstName' }, { name: 'lastName' }, { name: 'email' }];
+
+var App = React.createClass({
+	displayName: 'App',
+
+	handleColumnOrderChange: function handleColumnOrderChange(index, dropIndex) {
+		var col = columns[index];
+		columns.splice(index, 1); //delete from index, 1 item
+		columns.splice(dropIndex, 0, col);
+		this.setState({});
+	},
+	render: function render() {
+		return React.createElement(DataGrid, {
+			idProperty: 'id',
+			dataSource: data,
+			columns: columns,
+			style: { height: 500 },
+			onColumnOrderChange: this.handleColumnOrderChange
+		});
+	}
+});
+
+module.exports = App;

@@ -1,0 +1,47 @@
+'use strict';
+
+var React = require('react');
+var DataGrid = require('react-datagrid');
+
+var columns = [{ name: 'id', title: '#', width: 150 }, { name: 'lastName' }, { name: 'country', width: 200 }, { name: 'email' }];
+
+function ds() {
+	//all we need is a Promise - so you can make any request (either GET or POST)
+	return fetch('http://5.101.99.47:8090/1000').then(function (response) {
+		return response.json().then(function (json) {
+			return {
+				array: json.data,
+				total: json.count
+			};
+		});
+	}).then(function (json) {
+		//if you return your data array and the remote data count
+		//under different keys, make sure you map them to {data,count}
+		return {
+			data: json.array,
+			count: json.total
+		};
+	});
+}
+
+module.exports = React.createClass({
+	displayName: 'exports',
+
+	render: function render() {
+		return React.createElement(DataGrid, {
+			dataSource: ds,
+			idProperty: 'id',
+			columns: columns,
+			style: { height: 500 },
+			paginationToolbarProps: {
+				showRefreshIcon: false,
+				iconSize: 30,
+				iconProps: {
+					style: { fill: '#FF8484' },
+					overStyle: { fill: 'red' },
+					disabledStyle: { fill: '#808080' }
+				}
+			}
+		});
+	}
+});
